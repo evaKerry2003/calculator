@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <link rel="stylesheet" href="calculator.css">
+</head>
+
+<body>
+  <div class="calc">
+    <input type="text" id="number">
+
+    <div class="tons">
+      <button onclick="addToResult('7')">7</button>
+      <button onclick="addToResult('8')">8</button>
+      <button onclick="addToResult('9')">9</button>
+      <button onclick="addToResult('/')">/</button>
+    </div>
+    <div class="tons">
+      <button value="6" onclick="addToResult('6')">6</button>
+      <button value="5" onclick="addToResult('5')">5</button>
+      <button value="4" onclick="addToResult('4')">4</button>
+      <button value="*" onclick="addToResult('*')">*</button>
+    </div>
+    <div class="tons">
+      <button value="1" onclick="addToResult('1')">1</button>
+      <button value="2" onclick="addToResult('2')">2</button>
+      <button value="3" onclick="addToResult('3')">3</button>
+      <button value="-" onclick="addToResult('-')">-</button>
+    </div>
+    <div class="tons">
+      <button value="c" onclick="clearResult()">C</button>
+      <button value="0" onclick="addToResult('0')">0</button>
+      <button value="=" onclick="calculate()">=</button>
+      <button value="+" onclick="addToResult('+')">+</button>
+    </div>
+  </div>
+  <script>
+
+
+
+    function addToResult(value) {
+      document.getElementById("number").value += value;
+    }
+
+    function clearResult() {
+
+      document.getElementById('number').value = "";
+    }
+
+    function calculate() {
+      try {
+        var result = eval(document.getElementById("number").value);
+        if (isNaN(result)) {
+          throw "Invalid input";
+        }
+        document.getElementById("number").value = result;
+      } catch (error) {
+        document.getElementById("number").value = "Error";
+      }
+    }
+
+
+  </script>
+</body>
+
+</html>
